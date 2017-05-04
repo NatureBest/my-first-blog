@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+    {% block content %}
+        <div class="blog_list">
+            {% if blog_list.tiemstamp %}
+                <div class="date">
+                    {{ blog_list.tiemstamp }}
+                </div>
+            {% endif %}
+            <h1>{{ blog_list.title }}</h1>
+            <p>{{ blog_list.body|linebreaksbr }}</p>
+        </div>
+    {% endblock %}

@@ -1,25 +1,18 @@
-<title>NB</title>
-<html>
-<head>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-</head>
-
-
-<body>
-{% extends "base.html" %}
-  {% block content %}
-      {% for blog_list in blog_list %}
-      <h2>
-      color: #FCA205;
-      font-family: 'Lobster';
-      {{  blog_list.title }}
-      </h2>
-      <p>{{ blog_list.tiemstamp | date:"1,F jS"}}</p>
-      <p>{{ blog_list.body }}</p>
-      {% endfor %}
-  {% endblock %}
-</body>
-
-
-</html>
+ {% extends 'blog/base.html' %}
+    <body>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+            {% block content %}
+                {% for blog_list in blog_list %}
+                    <div class="blog_list">
+                       <p>published: {{ blog_list.tiemstamp }}</p>
+                      <h1><a href="{% url 'post_detail' pk=blog_list.pk %}">{{ blog_list.title }}</a></h1>
+                      <p>{{ blog_list.body|linebreaksbr }}</p>
+                    </div>
+                 {% endfor %}
+            {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </body>
