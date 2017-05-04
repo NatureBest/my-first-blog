@@ -4,7 +4,7 @@ from django.template import loader,Context
 from django.http import HttpResponse
 from blog.models import BlogsPost
 from django.shortcuts import render_to_response
-from . import  search
+#from . import  search
 #Create your views here.
 #def archive(request):
 #    posts = BlogsPost.objects.all()
@@ -13,4 +13,4 @@ from . import  search
 #    return HttpResponse(t.render(c))
 def archive(request):
     blog_list=BlogsPost.objects.all()
-    return render_to_response('archive.html',{'blog_list':blog_list})
+    return render_to_response('blog/archive.html',{'blog_list':blog_list})

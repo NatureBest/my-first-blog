@@ -1,0 +1,25 @@
+<title>NB</title>
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+
+
+<body>
+{% extends "base.html" %}
+  {% block content %}
+      {% for blog_list in blog_list %}
+      <h2>
+      color: #FCA205;
+      font-family: 'Lobster';
+      {{  blog_list.title }}
+      </h2>
+      <p>{{ blog_list.tiemstamp | date:"1,F jS"}}</p>
+      <p>{{ blog_list.body }}</p>
+      {% endfor %}
+  {% endblock %}
+</body>
+
+
+</html>
